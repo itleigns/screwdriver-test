@@ -1,5 +1,5 @@
 shared:
-  image: node8
+  image: node:14
 jobs:
   validate:
     requires: ~pr
