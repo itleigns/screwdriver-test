@@ -1,0 +1,33 @@
+shared:
+  image: node8:latest
+jobs:
+  validate:
+    requires: ~pr
+    steps:
+      - install: npm install -g yaml-lint
+      - lint: yamllint ./sd-command.yaml
+  publish:
+    requires: ~commit
+    blockedBy:
+      - ~promote
+    steps:
+      - publish: cat sd-command.yaml && sd-cmd publish -f sd-command.yaml | tail -1 | xargs meta set cmd-version
+  verify:
+    requires: publish
+    steps:
+      - exec: |
+          cmd_ver=`meta get cmd-version`
+          echo "Ver: $cmd_ver"
+          sd-cmd exec itleigns/hello@${cmd_ver} version
+          sd-cmd exec itleigns/hello@latest version
+  promote:
+    requires:
+      - verify
+    steps:
+      - set-tag: sd-cmd promote itleigns/hello latest stable
+  removeTag:
+    steps:
+      - remove: sd-cmd removeTag harukawa/hello stable
+  sdToken:
+    steps:
+      - echo ${SD_TOKEN}

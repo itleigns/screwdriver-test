@@ -1,0 +1,15 @@
+# Namespace for the command
+namespace: itleigns
+# Command name itself
+name: hello
+# Description of the command and what it does
+description: |
+   Hello World example
+maintainer: itleigns@gmail.com
+# Major and Minor version number (patch is automatic)
+version: 0.0
+# Format the command is in (see below for examples)
+# Valid options: habitat, docker, binary
+format: binary
+binary:
+    file: ./hello.sh
