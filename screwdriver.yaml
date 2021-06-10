@@ -27,7 +27,7 @@ jobs:
       - set-tag: sd-cmd promote itleigns/hello latest stable
   removeTag:
     steps:
-      - remove: sd-cmd removeTag harukawa/hello stable
+      - remove: sd-cmd removeTag itleigns/hello stable
   sdToken:
     steps:
       - echo ${SD_TOKEN}
