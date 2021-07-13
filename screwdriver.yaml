@@ -1,0 +1,23 @@
+shared:
+    image: node:14
+jobs:
+    email-success:
+        requires: [ ~commit ]
+        settings:
+            email:
+                statuses:
+                    - SUCCESS
+                addresses:
+                    - itleigns@gmail.com
+        steps:
+            - echo: echo 'SUCCESS'
+    email-queued:
+        requires: [ ~commit ]
+        settings:
+            email:
+                statuses:
+                    - QUEUED
+                addresses:
+                    - itleigns@gmail.com
+        steps:
+            - echo: echo 'queued'
