@@ -1,23 +1,17 @@
 shared:
-    image: node:14
+  image: node:14
+  settings:
+    slack:
+      channels:
+        - slack-test1
+      statuses:
+        - SUCCESS
+        - FAILURE
+        - QUEUED
+      minimized: false
 jobs:
-    email-success:
-        requires: [ ~commit ]
-        settings:
-            email:
-                statuses:
-                    - SUCCESS
-                addresses:
-                    - itleigns@gmail.com
-        steps:
-            - echo: echo 'SUCCESS'
-    email-queued:
-        requires: [ ~commit ]
-        settings:
-            email:
-                statuses:
-                    - QUEUED
-                addresses:
-                    - itleigns@gmail.com
-        steps:
-            - echo: echo 'queued'
+  dogs:
+    requires: [ ~pr, ~commit ]
+    steps:
+      - echo "a"
+      - which a
