@@ -1,17 +1,5 @@
-shared:
-  image: node:14
-  settings:
-    slack:
-      channels:
-        - slack-test1
-      statuses:
-        - SUCCESS
-        - FAILURE
-        - QUEUED
-      minimized: false
 jobs:
-  dogs:
+  test:
     requires: [ ~pr, ~commit ]
     steps:
-      - echo "a"
-      - which a
+      - cat /usr/src/app/node_modules/screwdriver-api/plugins/builds/update.js
