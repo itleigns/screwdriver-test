@@ -1,0 +1,16 @@
+shared:
+  image: node14:latest
+  environment:
+    SD_TEMPLATE_PATH: ./sd-template.yaml
+
+jobs:
+  validate:
+    requires: [ ~pr ]
+    steps:
+      - install: npm i -g screwdriver-template-main
+      - validate: template-validate
+  publish:
+    requires: [ ~commit ]
+    steps:
+      - install: npm i -g screwdriver-template-main
+      - publish: template-publish

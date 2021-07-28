@@ -1,0 +1,16 @@
+# Namespace for the template
+namespace: itleigns
+# Template name itself
+name: template-publish
+# Description of the template and what it does
+description: template-publish
+maintainer: itleigns@gmail.com
+# Major and Minor version number (patch is automatic)
+version: 0.0
+config:
+  image: node14:latest
+  environment:
+    SD_TEMPLATE_PATH: ./sd-template.yaml
+  steps:
+    - install: npm i -g screwdriver-template-main
+    - publish: template-publish
