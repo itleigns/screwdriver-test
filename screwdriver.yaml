@@ -1,17 +1,16 @@
 shared:
-  image: node:14
-  settings:
-    slack:
-      channels:
-        - slack-test1
-      statuses:
-        - SUCCESS
-        - FAILURE
-        - QUEUED
-      minimized: false
+  image: node14:latest
+ 
 jobs:
-  dogs:
-    requires: [ ~pr, ~commit ]
+  build1:
+    requires: [ ~commit, ~pr ]
     steps:
-      - echo "a"
-      - which a
+      - hello: echo $SD_ARTIFACTS_DIR
+  build2:
+    requires: [ ~commit, ~pr ]
+    steps:
+      - sleep: sleep 3
+  test:
+    requires: [ ~build1, ~build2 ]
+    steps:
+      - test: echo "This job starts after build1 or build2 succeeded"
