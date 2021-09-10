@@ -1,16 +1,6 @@
-shared:
-  image: node14:latest
- 
 jobs:
-  build1:
+  notify:
+    image: node14:latest
     requires: [ ~commit, ~pr ]
     steps:
-      - hello: echo $SD_ARTIFACTS_DIR
-  build2:
-    requires: [ ~commit, ~pr ]
-    steps:
-      - sleep: sleep 3
-  test:
-    requires: [ ~build1, ~build2 ]
-    steps:
-      - test: echo "This job starts after build1 or build2 succeeded"
+      - echo "test"
