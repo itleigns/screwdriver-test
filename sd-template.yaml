@@ -1,7 +1,7 @@
 # Namespace for the template
 namespace: itleigns
 # Template name itself
-name: template-publish
+name: template-test-1
 # Description of the template and what it does
 description: template-publish
 maintainer: itleigns@gmail.com
