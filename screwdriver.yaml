@@ -1,16 +1,5 @@
-shared:
-  image: node14:latest
- 
 jobs:
-  build1:
-    requires: [ ~commit, ~pr ]
+  detach:
+    image: node14:latest
     steps:
-      - hello: echo $SD_ARTIFACTS_DIR
-  build2:
-    requires: [ ~commit, ~pr ]
-    steps:
-      - sleep: sleep 3
-  test:
-    requires: [ ~build1, ~build2 ]
-    steps:
-      - test: echo "This job starts after build1 or build2 succeeded"
+      - hello: echo 'Detach'
