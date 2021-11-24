@@ -3,4 +3,4 @@ jobs:
     requires: [ ~pr, ~commit ]
     image: node:14
     steps:
-      - cat /usr/src/app/node_modules/screwdriver-api/plugins/builds/update.js
+      - echo 'a'
