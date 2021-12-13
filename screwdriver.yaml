@@ -1,5 +1,22 @@
+shared:
+  image: node14:latest
+    
 jobs:
-  detach:
-    image: node14:latest
+  A:
+    requires: [ ~commit ]
     steps:
-      - hello: echo 'Detach'
+      - show: echo 'A'
+  B:
+    requires: [ ~commit ]
+    steps:
+      - show: echo 'B'
+      - sleep: sleep 300
+  C:
+    requires: [ ~commit ]
+    steps:
+      - show: echo 'C'
+  D:
+    requires: [ ~A, B, C]
+    steps:
+      - show: echo 'D'
+      - sleep: sleep 100
