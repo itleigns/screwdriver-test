@@ -4,3 +4,9 @@ jobs:
     image: node:14
     steps:
       - echo 'a'
+      
+  tes2:
+    requires: [ test ]
+    image: node:14
+    steps:
+      - echo 'a'
