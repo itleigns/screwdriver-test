@@ -1,12 +1,10 @@
 jobs:
   test:
-    requires: [ ~pr, ~commit ]
-    image: node:14
+    environment: 
+      DIR: ~/test
+    requires: ~commit
     steps:
-      - echo 'a'
-      
-  tes2:
-    requires: [ test ]
-    image: node:14
-    steps:
-      - echo 'a'
+    - ls
+    - mkdir -p $DIR
+    - ls
+    - ls ~
