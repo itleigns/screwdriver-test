@@ -1,5 +1,6 @@
 jobs:
   test:
+    image: node:14
     environment: 
       DIR: ~/test
     requires: ~commit
