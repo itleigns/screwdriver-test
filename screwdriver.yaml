@@ -1,7 +1,14 @@
 jobs:
-  test:
+  test-1:
     image: node:14
     requires: [~pr, ~commit]
+    steps:
+    - meta get event.creator
+    - meta get commit.author.username
+    - meta get commit.committer.username
+  test-2:
+    image: node:14
+    requires: [~tag, ~release]
     steps:
     - meta get event.creator
     - meta get commit.author.username
