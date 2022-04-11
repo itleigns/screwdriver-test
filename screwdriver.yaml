@@ -13,3 +13,10 @@ jobs:
     - meta get event.creator
     - meta get commit.author.username
     - meta get commit.committer.username
+  test-3:
+    image: node:14
+    requires: [test-1, test-2, ~sd@8145:detach]
+    steps:
+    - meta get event.creator
+    - meta get commit.author.username
+    - meta get commit.committer.username
