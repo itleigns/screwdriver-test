@@ -15,7 +15,7 @@ jobs:
     - meta get commit.committer.username
   test-3:
     image: node:14
-    requires: [test-1, test-2, ~sd@9087:]
+    requires: [test-1, test-2, ~sd@9087:test]
     steps:
     - meta get event.creator
     - meta get commit.author.username
