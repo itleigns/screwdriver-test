@@ -1,11 +1,8 @@
 jobs:
   test:
     image: node:14
-    environment: 
-      DIR: ~/test
-    requires: ~commit
+    requires: [~pr, ~commit]
     steps:
-    - ls
-    - mkdir -p $DIR
-    - ls
-    - ls ~
+    - meta get event.creator
+    - meta get commit.author.username
+    - meta get commit.committer.username
