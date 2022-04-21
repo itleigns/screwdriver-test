@@ -20,3 +20,11 @@ jobs:
     - meta get event.creator
     - meta get commit.author.username
     - meta get commit.committer.username
+  test-4:
+    image: node:14
+    annotations: 
+       screwdriver.cd/buildPeriodically: H * * * *
+    steps:
+    - meta get event.creator
+    - meta get commit.author.username
+    - meta get commit.committer.username
