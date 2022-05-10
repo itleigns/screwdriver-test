@@ -1,30 +1,14 @@
 jobs:
-  test-1:
+  A:
     image: node:14
-    requires: [~pr, ~commit]
     steps:
-    - meta get event.creator
-    - meta get commit.author.username
-    - meta get commit.committer.username
-  test-2:
+    - echo 'A'
+  B:
     image: node:14
-    requires: [~tag, ~release]
     steps:
-    - meta get event.creator
-    - meta get commit.author.username
-    - meta get commit.committer.username
-  test-3:
+    - echo 'B'
+  C:
     image: node:14
-    requires: [test-1, test-2, ~sd@9087:test]
+    requires: [A, B]
     steps:
-    - meta get event.creator
-    - meta get commit.author.username
-    - meta get commit.committer.username
-  test-4:
-    image: node:14
-    annotations: 
-       screwdriver.cd/buildPeriodically: H * * * *
-    steps:
-    - meta get event.creator
-    - meta get commit.author.username
-    - meta get commit.committer.username
+    - echo 'C'
