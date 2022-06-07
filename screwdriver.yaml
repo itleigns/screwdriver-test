@@ -1,0 +1,23 @@
+annotations:
+  screwdriver.cd/chainPR: true
+ 
+shared:
+  image: node16
+ 
+jobs:
+  build1:
+    requires: [ ~commit, ~pr ]
+    steps:
+      - hello: echo "Hello build1"
+  build2:
+    requires: [ build1 ]
+    steps:
+      - hello: echo "Hello build2"
+  build3:
+    requires: [ build1 ]
+    steps:
+      - hello: echo "Hello build3"
+  build4:
+    requires: [ build2, build3 ]
+    steps:
+      - hello: echo "Hello build4"
