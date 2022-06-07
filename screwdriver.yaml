@@ -1,6 +1,7 @@
 jobs:
   A:
     image: node:14
+    requires: ~pr
     steps:
     - echo 'A'
   B:
