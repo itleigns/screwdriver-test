@@ -1,15 +1,13 @@
 jobs:
-  A:
-    image: node:14
-    requires: ~pr
+  main:
+    image: node:16
+    requires: [ ~pr, ~pr:pr-comment, ~commit ]
     steps:
-    - echo 'A'
-  B:
-    image: node:14
+      - markdown: meta set meta.summary.markdown "this markdown comment is **bold** and *italic*"
+      - coverage: meta set meta.summary.coverage "Coverage increased by 15%"
+  main-2:
+    image: node:16
+    requires: [ ~pr, ~commit ]
     steps:
-    - echo 'B'
-  C:
-    image: node:14
-    requires: [A, B]
-    steps:
-    - echo 'C'
+      - markdown: meta set meta.summary.markdown "this markdown comment is **bold** and *italic*"
+      - coverage: meta set meta.summary.coverage "Coverage increased by 15%"
