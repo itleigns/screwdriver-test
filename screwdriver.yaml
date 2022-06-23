@@ -4,7 +4,7 @@ jobs:
     steps:
       - hello: echo 'Detach'
   job-2:
-    require: ~pr
+    requires: ~pr
     image: node14:latest
     steps:
       - hello: echo 'Detach'
