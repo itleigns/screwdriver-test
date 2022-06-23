@@ -3,3 +3,8 @@ jobs:
     image: node14:latest
     steps:
       - hello: echo 'Detach'
+  job-2:
+    requires: ~pr
+    image: node14:latest
+    steps:
+      - hello: echo 'Detach'
