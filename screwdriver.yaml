@@ -33,5 +33,7 @@ jobs:
     steps:
        - metaget: meta get hello
        - metaset: meta set hello "Hello build4"
+       - metaget4: meta get hello2
+       - metaget4: meta get hello3
        - metaget4: meta get hello4
        - metaset4: meta set hello4 "Hello build4"
