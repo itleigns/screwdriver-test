@@ -11,14 +11,14 @@ jobs:
        - metaget: meta get hello
        - metaset: meta set hello "Hello build1"
   build2:
-    requires: [ build1 ]
+    requires: [ ~commit, ~pr ]
     steps:
        - metaget: meta get hello
        - metaset: meta set hello "Hello build2"
        - metaget2: meta get hello2
        - metaset2: meta set hello2 "Hello build2"
   build3:
-    requires: [ build1 ]
+    requires: [ ~commit, ~pr ]
     parameters:
       number:
         value: "abc"
