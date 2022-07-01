@@ -8,16 +8,30 @@ jobs:
   build1:
     requires: [ ~commit, ~pr ]
     steps:
-      - hello: echo "Hello build1"
+       - metaget: meta get hello
+       - metaset: meta set hello "Hello build1"
   build2:
     requires: [ build1 ]
     steps:
-      - hello: echo "Hello build2"
+       - metaget: meta get hello
+       - metaset: meta set hello "Hello build2"
+       - metaget2: meta get hello2
+       - metaset2: meta set hello2 "Hello build2"
   build3:
     requires: [ build1 ]
+    parameters:
+      number:
+        value: "qqq"
     steps:
-      - hello: echo "Hello build3"
+       - metaget: meta get hello
+       - metaset: meta set hello "Hello build3"
+       - metaget2: meta get hello3
+       - metaset2: meta set hello3 "Hello build3"
+       - fail: if [ "$(meta get parameters.number.value)" == "qqq" ]; then exit 1; fi;
   build4:
     requires: [ build2, build3 ]
     steps:
-      - hello: echo "Hello build4"
+       - metaget: meta get hello
+       - metaset: meta set hello "Hello build4"
+       - metaget4: meta get hello4
+       - metaset4: meta set hello4 "Hello build4"
