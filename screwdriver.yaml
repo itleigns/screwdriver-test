@@ -21,14 +21,14 @@ jobs:
     requires: [ build1 ]
     parameters:
       number:
-        value: 1
+        value: "1"
     steps:
        - metaget: meta get hello
        - metaset: meta set hello "Hello build3"
        - metaget2: meta get hello3
        - metaset2: meta set hello3 "Hello build3"
        - fail:  |
-          if [ $(meta get parameters.number.value) == 1 ]; then exit 1; fi;
+          if [ $(meta get parameters.number.value) == "1" ]; then exit 1; fi;
   build4:
     requires: [ build2, build3 ]
     steps:
