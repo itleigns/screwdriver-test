@@ -21,7 +21,7 @@ jobs:
     requires: [ build1 ]
     parameters:
       number:
-        value: "1"
+        value: "abc"
     steps:
        - metaget: meta get hello
        - metaset: meta set hello "Hello build3"
@@ -29,6 +29,9 @@ jobs:
        - metaset2: meta set hello3 "Hello build3"
        - fail:  |
           if test "$(meta get parameters.number.value)" == "1"; then exit 1; fi;
+          if [ "$(meta get parameters.number.value)" = "abc" ]; then
+            exit 1
+          fi
   build4:
     requires: [ build2, build3 ]
     steps:
