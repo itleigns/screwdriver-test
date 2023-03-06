@@ -2,7 +2,12 @@ shared:
   image: node:16
  
 jobs:
-  build1:
-    requires: [ ~commit ]
+  test:
+    requires: [ ~pr, ~commit ]
     steps:
-      - hello: echo "Hello build1"
+      - dir: |
+          mkdir -p $SD_ARTIFACTS_DIR/build/
+          echo "WSWS" > $SD_ARTIFACTS_DIR/build/a.txt
+          echo "SWSW" > $SD_ARTIFACTS_DIR/build/b.txt
+          mkdir -p $SD_ARTIFACTS_DIR/build/dir
+          echo "EDED" > $SD_ARTIFACTS_DIR/build/dir/c.txt
