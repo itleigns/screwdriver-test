@@ -1,8 +1,13 @@
-shared:
-  image: node:16
- 
 jobs:
-  build1:
-    requires: [ ~commit ]
+  job1:
+    requires: [ ~pr, ~commit ]
+    image: node:16
     steps:
-      - hello: echo "Hello build1"
+      - main: echo hoge
+  not-start:
+    annotations:
+      screwdriver.cd/jobDisabledByDefault: true
+    requires: [ ~pr, ~commit ]
+    image: node:16
+    steps:
+      - main: echo hoge
