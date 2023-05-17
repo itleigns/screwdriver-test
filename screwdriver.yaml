@@ -16,7 +16,7 @@ jobs:
   not-start-2:
     annotations:
       screwdriver.cd/jobDisabledByDefault: true
-    requires: [ ~pr, ~commit ]
+    requires: [ not-start ]
     image: node:16
     steps:
       - main: echo hoge
