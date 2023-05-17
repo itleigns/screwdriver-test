@@ -1,3 +1,5 @@
+annotations:
+  screwdriver.cd/chainPR: true
 jobs:
   job1:
     requires: [ ~pr, ~commit ]
@@ -5,6 +7,13 @@ jobs:
     steps:
       - main: echo hoge
   not-start:
+    annotations:
+      screwdriver.cd/jobDisabledByDefault: true
+    requires: [ ~pr, ~commit ]
+    image: node:16
+    steps:
+      - main: echo hoge
+  not-start-2:
     annotations:
       screwdriver.cd/jobDisabledByDefault: true
     requires: [ ~pr, ~commit ]
