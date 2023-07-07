@@ -3,8 +3,9 @@ jobs:
     image: node:14
     environment: 
       DIR: ~/test
-    requires: ~commit
+    requires: [ ~commit, ~pr ]
     steps:
+    - echo $SD_EVENT_ID
     - ls
     - mkdir -p $DIR
     - ls
