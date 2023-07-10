@@ -2,7 +2,7 @@
 namespace: itleigns
 # Template name itself
 name: template-test-2
-version: 1.0
+version: '1.0'
 description: SDv4 template that does nothing
 maintainer: itleigns@gmail.com
 config:
