@@ -1,16 +1,11 @@
 # Namespace for the template
 namespace: itleigns
 # Template name itself
-name: template-test-1
-# Description of the template and what it does
-description: template-publish
+name: template-test-2
+version: 1.0
+description: SDv4 template that does nothing
 maintainer: itleigns@gmail.com
-# Major and Minor version number (patch is automatic)
-version: 0.0
 config:
-  image: node14:latest
-  environment:
-    SD_TEMPLATE_PATH: ./sd-template.yaml
+  image: screwdrivercd/noop-container
   steps:
-    - install: npm i -g screwdriver-template-main
-    - publish: template-publish
+    - noop: "true"
