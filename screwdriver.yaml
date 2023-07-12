@@ -1,8 +1,85 @@
 shared:
-  image: node:16
- 
+  image: node:18
+  annotations:
+    screwdriver.cd/buildPeriodically: H * * * *
+
 jobs:
-  build1:
-    requires: [ ~commit ]
+  peridoc-itleigns-1:
     steps:
-      - hello: echo "Hello build1"
+      - echo: echo hoge
+
+  peridoc-itleigns-2:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-3:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-4:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-5:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-6:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-7:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-8:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-9:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-10:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-11:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-12:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-13:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-14:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-15:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-16:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-17:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-18:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-19:
+    steps:
+      - echo: echo hoge
+
+  peridoc-itleigns-20:
+    steps:
+      - echo: echo hoge
