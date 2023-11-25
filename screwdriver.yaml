@@ -3,6 +3,10 @@ shared:
  
 jobs:
   build1:
-    requires: [ ~commit ]
+    requires: [ ~commit, ~pr ]
     steps:
       - hello: echo "Hello build1"
+  build2:
+    requires: [ ~commit, ~pr ]
+    steps:
+      - hello: echo "Hello build2"
