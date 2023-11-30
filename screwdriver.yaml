@@ -2,11 +2,23 @@ shared:
   image: node:16
  
 jobs:
-  QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ:
+  1000MB_CACHEA:
     requires: []
     steps:
     - echo: echo foo
-  QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQOQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ:
-    requires: [QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ]
+  1001MB_CACHEB:
+    requires: []
+    steps:
+    - echo: echo foo
+  1002MB_CACHEC:
+    requires: []
+    steps:
+    - echo: echo foo
+  1003MB_CACHED:
+    requires: []
+    steps:
+    - echo: echo foo
+  1004MB_CACHEE:
+    requires: []
     steps:
     - echo: echo foo
