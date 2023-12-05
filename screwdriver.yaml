@@ -2,15 +2,11 @@ shared:
   image: node:18
 
 jobs:
-  first:
-    requires: [ ~commit ]
+  sub1:
+    requires: [ ~sd@12751:first ]
     steps:
       - test: echo 'foo'
-  or-join:
-    requires: [ ~sd@12752:sub1 ]
+  sub2:
+    requires: [ ~sd@12751:first ]
     steps:
-      - test: echo 'foo'
-  and-join:
-    requires: [ sd@12752:sub1, sd@12752:sub2 ]
-    steps:
-      - test: echo 'foo'
+      - test: echo 'bar'
