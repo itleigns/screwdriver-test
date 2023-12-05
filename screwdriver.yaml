@@ -2,31 +2,15 @@ shared:
   image: node:18
 
 jobs:
-  main:
+  first:
     requires: [ ~commit ]
     steps:
-      - echo "This is main job"
-      - cat aaa/t.txt
-  main-pr:
-    requires: [ ~pr ]
+      - test: echo 'foo'
+  or-join:
+    requires: [ ~sd@12752:sub1 ]
     steps:
-      - echo "This is main-pr job"
-      - cat aaa/t.txt
-  staging:
-    requires: [ ~commit:branch-specific-branch ]
+      - test: echo 'foo'
+  and-join:
+    requires: [ sd@12752:sub1, sd@12752:sub2 ]
     steps:
-      - echo "This is staging job"
-      - cat aaa/t.txt
-  staging-pr:
-    requires: [ ~pr:branch-specific-branch ]
-    steps:
-      - echo "This is staging-pr job"
-      - cat aaa/t.txt
-  detached:
-    steps:
-      - echo "This is detached job"
-      - cat aaa/t.txt
-  detached2:
-    steps:
-      - echo "This is detached2 job"
-      - cat aaa/t.txt
+      - test: echo 'foo'
