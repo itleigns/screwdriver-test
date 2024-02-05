@@ -1,8 +1,7 @@
 shared:
-  image: node:16
- 
+  image: node:18
+
 jobs:
-  build1:
-    requires: [ ~commit ]
-    steps:
-      - hello: echo "Hello build1"
+  test:
+    template: screwdriver-cd-test/test-trusted-template@latest
+    requires: [ ~pr, ~commit ]
