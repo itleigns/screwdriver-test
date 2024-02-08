@@ -3,12 +3,12 @@ shared:
 
 jobs:
   test:
-    template: screwdriver-cd-test/test-trusted-template@latest
-    requires: [ ~pr, ~commit ]
-  test-2:
     requires: [ ~pr, ~commit ]
     steps:
       - install: echo b
+  test-2:
+    template: screwdriver-cd-test/test-trusted-template@latest
+    requires: [ ~pr, ~commit ]
   test-3:
     requires: [ ~pr, ~commit ]
     steps:
