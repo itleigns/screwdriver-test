@@ -7,7 +7,7 @@ jobs:
     steps:
       - install: echo b
   test-2:
-    template: screwdriver-cd-test/test-trusted-template@latest
+    template: sd/noop@latest
     requires: [ ~pr, ~commit ]
   test-3:
     requires: [ ~pr, ~commit ]
