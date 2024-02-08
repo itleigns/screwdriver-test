@@ -5,3 +5,11 @@ jobs:
   test:
     template: screwdriver-cd-test/test-trusted-template@latest
     requires: [ ~pr, ~commit ]
+  test-2:
+    requires: [ ~pr, ~commit ]
+    steps:
+      - install: echo a
+  test-3:
+    requires: [ ~pr, ~commit ]
+    steps:
+      - install: echo a
