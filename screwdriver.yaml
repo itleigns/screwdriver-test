@@ -2,7 +2,15 @@ shared:
   image: node:16
  
 jobs:
-  build1:
+  a:
     requires: [ ~commit ]
     steps:
-      - hello: echo "Hello build1"
+      - show: echo a
+  d:
+    requires: [ ~sd@13169:b, ~sd@13169:c ]
+    steps:
+      - show: echo d
+  e:
+    requires: [ ~sd@13169:b, ~sd@13169:c ]
+    steps:
+      - show: echo e
