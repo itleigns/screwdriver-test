@@ -1,3 +1,5 @@
+annotations:
+  screwdriver.cd/useDeployKey: true
 shared:
   image: node:16
  
